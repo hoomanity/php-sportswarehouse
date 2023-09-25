@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #555;
+    color: white;
+    /* animation: terrible 500ms linear infinite; */
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+}
+
+a {
+    text-decoration: none;
+    color: #00aced;
+}
+
+a:is(:hover, :focus) {
+    text-decoration: underline;
+    color: #087aa3;
+}
+
+.site-wrapper {
+    max-width: 800px;
+    margin: 10px auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #555;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.site-header {
+    padding: 10px;
+    border-bottom: 2px solid #00aced;
+    background-color: #00aeed8f;
+}
+
+@media (max-width: 640px) {
+    /* .logo-image {
+        display: none;
+    } */
+
+    .site-header {
+        display: none;
+    }
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ff690c;
+    background-color: #00aeed8f;
+    border-radius: 1em;
+    margin-bottom: 1em;
+
+    .header-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .comingsoon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 1em;
+
+
+
+    }
+}
+
+legend {
+    font-size: 18px;
+    background-color: #555;
+    border-radius: 0.4em;
+    border: 0.1em solid #ff690c;
+    color: #fff;
+}
+
+
+.site-header__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #00aced;
+}
+
+.main-content {
+    padding: 10px;
+}
+
+.site-footer {
+    padding: 20px;
+    background-color: #00aced;
+    color: white;
+}
+
+.site-footer__copyright {
+    text-align: center;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+
+
+/* Navigation */
+
+.main-nav {
+    .nav {
+        display: flex;
+        justify-content: center;
+        gap: 0.2em;
+        margin: 0 0 10px;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .nav__link {
+        display: inline-block;
+        padding: 0.4em 0.8em;
+        background-color: #00aced;
+        color: white;
+    }
+
+    .nav__link:is(:hover, :focus) {
+        background-color: #087aa3;
+        text-decoration: none;
+    }
+
+    .nav__item--active .nav__link {
+        border-bottom: 3px solid #ff690c;
+    }
+}
+
+/* footer */
+.nav-list {
+    display: flex;
+}
+
+.social-links {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+.social-cards a {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.social-links-description {
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.image-icon {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+.image-icon:hover {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    margin: auto;
+    border: 1px solid#ff690c;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+
+/* Messages */
+
+.error-summary {
+    margin: 1em 0;
+    padding: 0.5em;
+    border: 1px solid #8f080878;
+    /* #rrggbbaa */
+    border-radius: 5px;
+    color: #8f0808;
+    background-color: #8f08084b;
+    font-style: italic;
+}
+
+.error-message {
+    color: #8f0808;
+    font-style: italic;
+
+}
+
+.success-message {
+    color: #088f08;
+    font-style: italic;
+}
+
+
+
+/* Forms */
+
+form fieldset {
+    border: 1px solid #ff690c;
+    border-radius: 5px;
+    padding: 1em;
+    background-color: #00aeed8f;
+}
+
+form .form-row {
+    margin: 0.5em 0;
+}
+
+form .form-row>label:first-child {
+    display: inline-block;
+    min-width: 9.5em;
+}
+
+/* Add a required asterisk to labels with a required input after them */
+form .form-row>label:has(+ *[required])::after {
+    content: "*";
+    padding-left: 0.2em;
+    color: red;
+}
+
+input,
+button,
+select,
+textarea {
+    padding: 0.1em 0.2em;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button,
+input[type=button],
+input[type=submit] {
+    display: inline-block;
+    padding: 0.4em 0.8em;
+    border: none;
+    border-radius: 5px;
+    background-color: #00aced;
+    color: white;
+    cursor: pointer;
+
+    /*
+        OPTION 1: Nested CSS selector
+        NOTE: No good browser support yet!
+        Apply hover/focus styles to the element that we are already styling
+    */
+    &:hover,
+    &:focus {
+        background-color: #087aa3;
+    }
+}
+
+/*
+    OPTION 2: Using :is() to group selectors
+    NOTE: Pretty good browser support (94% in 2023)
+    Select EITHER button/input/input AND hover/focus
+*/
+/* :is(
+    button,
+    input[type=button],
+    input[type=submit]
+):is(
+    :hover,
+    :focus
+) {
+    background-color: red;
+} */
+
+/*
+    OPTION 3: Individual selectors
+    Select every case individually (very repetitive)
+*/
+/* button:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+button:focus,
+input[type=button]:focus,
+input[type=submit]:focus {
+    background-color: purple;
+} */
+
+
+
+/* BAD THINGS BELOW THIS POINT */
+
+@keyframes terrible {
+    0% {
+        background: red;
+    }
+
+    25% {
+        background: greenyellow;
+    }
+
+    50% {
+        background: aqua;
+    }
+
+    75% {
+        background: magenta;
+    }
+}
